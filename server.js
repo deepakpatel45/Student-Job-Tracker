@@ -10,7 +10,7 @@ const { protect } = require("./middleware/authMiddleware");
 dotenv.config();
 connectDB();
 
-const app = express();
+// const app = express();
 
 // Middleware
 const cors = require("cors");
