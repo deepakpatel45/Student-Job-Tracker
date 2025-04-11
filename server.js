@@ -13,8 +13,24 @@ connectDB();
 const app = express();
 
 // Middleware
-// const cors = require("cors");
-app.use(cors({ origin: ["http://localhost:5173", "https://student-frontend-rho.vercel.app/"] })); // Allow requests from the frontend
+const allowedOrigins = [
+  "http://localhost:5173", // Local frontend
+  "https://student-frontend-rho.vercel.app/" // Deployed frontend
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Allow cookies and credentials
+  })
+);
+
 app.use(bodyParser.json());
 
 // Routes
