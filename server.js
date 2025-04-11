@@ -13,7 +13,7 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors({ origin: "http://localhost:5173" })); // Allow requests from the frontend
+app.use(cors({ origin: "http://localhost:5173", "https://student-frontend-72ku.vercel.app" })); // Allow requests from the frontend
 app.use(bodyParser.json());
 
 // Routes
