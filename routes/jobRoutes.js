@@ -4,7 +4,7 @@ const {
   addJob,
   updateJobStatus,
   deleteJob,
-} = require("../controllers/JobController"); // Use "JobController" with the correct capitalization
+} = require("../controllers/jobController"); // Use "JobController" with the correct capitalization
 
 const router = express.Router();
 const { protect } = require("../middleware/authMiddleware");
